@@ -1,0 +1,521 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: #0b0b0b;
+    color: #eeeeee;
+    font-family: "Cairo", sans-serif;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(11, 11, 11, 0.85);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid #252525;
+}
+
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 15px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    font-family: "Amiri", serif;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+
+.logo span {
+    display: block;
+
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+
+    color: #888;
+    text-align: center;
+}
+
+
+.nav-links {
+    list-style: none;
+
+    display: flex;
+    gap: 30px;
+}
+
+
+.nav-links a {
+    color: #ddd;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 120px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #222 0%,
+            #0b0b0b 60%
+        );
+}
+
+
+.hero-content {
+    max-width: 800px;
+}
+
+
+.small-title {
+    color: #999;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+
+.hero h1 {
+
+    font-family: "Amiri", serif;
+
+    font-size: clamp(70px, 12vw, 150px);
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+}
+
+
+.subtitle {
+
+    font-family: "Amiri", serif;
+
+    font-size: 25px;
+
+    color: #bbb;
+
+    max-width: 600px;
+
+    margin: auto;
+}
+
+
+.button {
+
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 12px 35px;
+
+    border: 1px solid #777;
+
+    border-radius: 3px;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+
+.button:hover {
+
+    background: white;
+
+    color: black;
+
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    padding: 110px 25px;
+}
+
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+
+.section-title p {
+    color: #777;
+}
+
+
+.section-title h2 {
+
+    font-family: "Amiri", serif;
+
+    font-size: 50px;
+
+}
+
+
+/* =========================
+   WRITINGS
+========================= */
+
+.writings {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.card {
+
+    background: #111;
+
+    border: 1px solid #252525;
+
+    padding: 35px;
+
+    min-height: 320px;
+
+    transition: 0.4s;
+}
+
+
+.card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #555;
+
+}
+
+
+.card-icon {
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+
+    color: #aaa;
+
+}
+
+
+.card h3 {
+
+    font-family: "Amiri", serif;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.card p {
+
+    color: #aaa;
+
+}
+
+
+.read-more {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: white;
+
+    text-decoration: none;
+
+}
+
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote {
+
+    min-height: 400px;
+
+    background: #111;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+.quote div {
+
+    max-width: 800px;
+
+}
+
+
+.quote span {
+
+    font-size: 80px;
+
+    color: #555;
+
+}
+
+
+.quote p {
+
+    font-family: "Amiri", serif;
+
+    font-size: 35px;
+
+}
+
+
+.quote small {
+
+    color: #777;
+
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+
+.about-content {
+
+    text-align: center;
+
+    font-family: "Amiri", serif;
+
+    font-size: 25px;
+
+    color: #bbb;
+
+}
+
+
+.about-content p {
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+
+    text-align: center;
+
+    background: #111;
+
+}
+
+
+.social-links {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.social-links a {
+
+    border: 1px solid #333;
+
+    padding: 12px 30px;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+}
+
+
+.social-links a:hover {
+
+    background: white;
+
+    color: black;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    background: #070707;
+
+    color: #666;
+
+}
+
+
+.footer-logo {
+
+    font-family: "Amiri", serif;
+
+    font-size: 30px;
+
+    color: #ddd;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+    .nav-links {
+
+        gap: 15px;
+
+        font-size: 13px;
+
+    }
+
+
+    .cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 80px;
+
+    }
+
+
+    .subtitle {
+
+        font-size: 20px;
+
+    }
+
+
+    .quote p {
+
+        font-size: 27px;
+
+    }
+
+}
