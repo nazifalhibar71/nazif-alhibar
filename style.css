@@ -10,17 +10,16 @@
 
 html {
     scroll-behavior: smooth;
+
 }
-
-
 body {
-    background: #060606;
+    background: #0b0b0b;
     color: #eeeeee;
-    font-family: "Cairo", sans-serif;
+    font-family: "cairo", sans-serif;
     line-height: 1.8;
 }
 
-
+    
 /* =========================
    NAVBAR
 ========================= */
@@ -587,4 +586,77 @@ footer {
     cursor: pointer;
     background: #1e1925;
     color: white;
+}
+/* قسم إرسال النصوص */
+
+.send-writing {
+    padding: 80px 20px;
+    background: #050505;
+    color: white;
+}
+
+.send-container {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+.send-container h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.send-container > p {
+    color: #aaa;
+    margin-bottom: 35px;
+}
+
+#writingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#writingForm input,
+#writingForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    background: #111;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+#writingForm textarea {
+    resize: vertical;
+    line-height: 1.8;
+}
+
+#writingForm input:focus,
+#writingForm textarea:focus {
+    border-color: #777;
+}
+
+#writingForm button {
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #8b0000;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#writingForm button:hover {
+    background: #a00000;
+}
+
+#formMessage {
+    margin-top: 10px;
+}
+html {
+    scroll-behavior: smooth;
 }

@@ -41,7 +41,9 @@
                 <li><a href="#home">الرئيسية</a></li>
                 <li><a href="#writings">كتاباتي</a></li>
                 <li><a href="#about">من أنا</a></li>
+                <a href="#send-writing">شاركنا نزيف قلمك</a>
                 <li><a href="#contact">تواصل معي</a></li>
+
             </ul>
 
         </nav>
@@ -153,7 +155,23 @@
 
             </article>
 
+                       <!--الكتابة الرابعة-->
+            <article class="card">
 
+                <div class="card-icon">♡</div>
+
+                <h3>صراع الخواطر</h3>
+
+                <p>
+                 تشتد في رأسي خواطر تتصارع ، أدفع واحدة فتنهض أخرى، ولا أدري أين تسكن راحتي، فقد صارت أفكاري قوما يخاصم بعضهم بعضًا، وأنا بينهم حائر لا أمين لجهة.
+                </p>
+
+                <a href="#" class="read-more">
+                    اقرأ المزيد ←
+                </a>
+
+            </article> 
+            
         </div>
 
     </section>
@@ -203,8 +221,60 @@
 
     </section>
 
+    </footer>
 
-    <!-- التواصل -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
+<section class="send-writing" id="send-writing">
+    <div class="send-container">
+<section class="send-writing" id="send-writing">
+    ...
+</section>
+        <h2>شاركنا نزيف قلمك</h2>
+
+        <p>
+            اكتب نصك، خاطرتك، أو قصيدتك...
+            ودع حبرك يجد طريقه إلى القرّاء.
+        </p>
+
+        <form id="writingForm">
+
+            <input
+                type="text"
+                id="writerName"
+                placeholder="اسمك أو اسمك المستعار"
+                required
+            >
+
+            <input
+                type="text"
+                id="writingTitle"
+                placeholder="عنوان النص"
+                required
+            >
+
+            <textarea
+                id="writingText"
+                placeholder="اكتب نصك هنا..."
+                rows="8"
+                required
+            ></textarea>
+
+            <button type="submit">
+                ✒️ إرسال النص
+            </button>
+
+            <p id="formMessage"></p>
+
+        </form>
+
+    </div>
+</section>
+         <!-- التواصل -->
     <section id="contact" class="contact">
 
         <div class="section-title">
@@ -214,10 +284,9 @@
 
         <div class="social-links">
 
-            <a href="#" target="_blank">
-                Instagram
-               
-                nazifalhibar
+            <a href="https://www.instagram.com/nazifalhibar"
+            target="_blank">
+            📷 Instagram
 
             </a>
 
@@ -230,12 +299,10 @@
                 Email
             </a>
 
-        </div>
 
-    </section>
-
-
-    <!-- التذييل -->
+    </div>
+</section>
+<!-- التذييل -->
     <footer>
 
         <div class="footer-logo">
@@ -243,14 +310,5 @@
         </div>
 
         <p>
-            © 2026 Nazif Alhibar — جميع الحقوق محفوظة
+            © 2023 Nazif Alhibar — جميع الحقوق محفوظة
         </p>
-
-    </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="script.js"></script>
-    <script src="script.js"></script>
-
-</body>
-</html>

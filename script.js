@@ -253,3 +253,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// ==========================================
+// إرسال نصوص المتابعين إلى Supabase
+// ==========================================
+
+const writingForm = document.getElementById("writingForm");
+const formMessage = document.getElementById("formMessage");
+
+if (writingForm) {
+
+    writingForm.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+        const writerName =
+            document.getElementById("writerName").value.trim();
+
+        const writingTitle =
+            document.getElementById("writingTitle").value.trim();
+
+        const writingText =
+            document.getElementById("writingText").value.trim();
+
+        if (!writerName || !writingTitle || !writingText) {
+            formMessage.textContent = "يرجى ملء جميع الخانات.";
+            return;
+        }
+
+        formMessage.textContent = "جاري إرسال نصك...";
+
+        const { error } = await supabaseClient
+            .from("submissions")
+            .insert({
+                writer_name: writerName,
+                title: writingTitle,
+                content: writingText,
+                status: "pending"
+            });
+
+        if (error) {
+
+            console.error(error);
+
+            formMessage.textContent =
+                "حدث خطأ أثناء الإرسال، حاول مرة أخرى.";
+
+            return;
+        }
+
+        formMessage.textContent =
+            "تم إرسال نصك بنجاح ✒️ وسيتم مراجعته قبل نشره.";
+
+        writingForm.reset();
+    });
+}
