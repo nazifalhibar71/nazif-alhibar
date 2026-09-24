@@ -660,3 +660,375 @@ footer {
 html {
     scroll-behavior: smooth;
 }
+
+/* =========================
+   كتابات المتابعين
+========================= */
+
+.followers-writings {
+    padding: 90px 20px;
+    background: #050505;
+    color: #ffffff;
+}
+
+
+/* عنوان القسم */
+
+.followers-header {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.section-line {
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 0 auto 18px;
+    background: #8b0000;
+    border-radius: 10px;
+}
+
+.followers-header h2 {
+    margin: 0 0 15px;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.followers-header p {
+    margin: 0;
+    color: #999;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+
+/* شبكة الكتابات */
+
+.followers-grid {
+    max-width: 1150px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* بطاقة الكتابة */
+
+.follower-card {
+    background: #101010;
+
+    border: 1px solid #252525;
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.follower-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #5c0000;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* محتوى البطاقة */
+
+.follower-content {
+    padding: 28px;
+}
+
+
+/* التصنيف */
+
+.follower-label {
+    display: inline-block;
+
+    margin-bottom: 14px;
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(139, 0, 0, 0.15);
+
+    color: #c78b8b;
+
+    font-size: 12px;
+}
+
+
+/* عنوان الكتابة */
+
+.follower-content h3 {
+    margin: 5px 0 10px;
+
+    color: #ffffff;
+
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+
+/* اسم الكاتب */
+
+.follower-author {
+    margin: 0 0 20px;
+
+    color: #888;
+    font-size: 14px;
+}
+
+.follower-author strong {
+    color: #ddd;
+}
+
+
+/* النص */
+
+.follower-text {
+    margin: 0;
+
+    color: #ccc;
+
+    font-size: 15px;
+    line-height: 2;
+
+    text-align: right;
+}
+
+
+/* أزرار الإعجاب والتعليقات */
+
+.follower-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 25px;
+    padding-top: 18px;
+
+    border-top: 1px solid #242424;
+}
+
+.follower-actions button {
+    border: none;
+
+    padding: 10px 14px;
+
+    border-radius: 9px;
+
+    background: #181818;
+
+    color: #aaa;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition: 0.3s ease;
+}
+
+.follower-actions button:hover {
+    background: #8b0000;
+    color: #ffffff;
+}
+
+
+/* الإعجاب بعد الضغط */
+
+.follower-like.liked {
+    background: #8b0000;
+    color: #ffffff;
+}
+
+
+/* أعداد الإعجاب والتعليقات */
+
+.like-count,
+.comment-count {
+    margin-right: 4px;
+    color: #ddd;
+}
+
+
+/* صندوق التعليقات */
+
+.comments-box {
+    display: none;
+
+    margin-top: 20px;
+    padding-top: 20px;
+
+    border-top: 1px solid #242424;
+}
+
+.comments-box.show {
+    display: block;
+}
+
+
+/* قائمة التعليقات */
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+.comment-item {
+    padding: 12px 14px;
+
+    background: #181818;
+
+    border-radius: 10px;
+}
+
+.comment-item strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #ddd;
+}
+
+.comment-item p {
+    margin: 0;
+
+    color: #bbb;
+
+    line-height: 1.7;
+}
+
+
+/* نموذج التعليق */
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 12px;
+
+    border: 1px solid #333;
+    border-radius: 9px;
+
+    background: #111;
+    color: #ffffff;
+
+    font-family: inherit;
+
+    outline: none;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+    border-color: #8b0000;
+}
+
+.comment-form textarea {
+    resize: vertical;
+
+    min-height: 80px;
+
+    line-height: 1.7;
+}
+
+
+/* زر إرسال التعليق */
+
+.comment-form button {
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    background: #8b0000;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition: 0.3s ease;
+}
+
+.comment-form button:hover {
+    background: #a00000;
+}
+
+
+/* رسالة الحالة */
+
+.comment-message {
+    margin: 0;
+
+    color: #aaa;
+
+    font-size: 13px;
+}
+
+
+/* الأجهزة اللوحية */
+
+@media (max-width: 900px) {
+
+    .followers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* الهاتف */
+
+@media (max-width: 600px) {
+
+    .followers-writings {
+        padding: 65px 15px;
+    }
+
+    .followers-header h2 {
+        font-size: 28px;
+    }
+
+    .followers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .follower-content {
+        padding: 23px;
+    }
+
+    .follower-content h3 {
+        font-size: 22px;
+    }
+
+    .follower-actions {
+        flex-wrap: wrap;
+    }
+
+} 
