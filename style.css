@@ -1032,3 +1032,651 @@ html {
     }
 
 } 
+/* ==========================================
+   كتابات المتابعين
+========================================== */
+
+.followers-writings {
+    padding: 90px 20px;
+    background: #050505;
+    color: #ffffff;
+}
+
+.followers-header {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.section-line {
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 0 auto 18px;
+    background: #8b0000;
+    border-radius: 10px;
+}
+
+.followers-header h2 {
+    margin: 0 0 15px;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.followers-header p {
+    margin: 0;
+    color: #999;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+
+/* ==========================================
+   شبكة الكتابات
+========================================== */
+
+.followers-grid {
+    max-width: 1150px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* ==========================================
+   بطاقة الكتابة
+========================================== */
+
+.follower-card {
+    background: #101010;
+
+    border: 1px solid #252525;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.follower-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #5c0000;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ==========================================
+   محتوى البطاقة
+========================================== */
+
+.follower-content {
+    padding: 28px;
+}
+
+.follower-label {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(139, 0, 0, 0.15);
+
+    color: #c78b8b;
+
+    font-size: 12px;
+}
+
+.follower-content h3 {
+    margin: 5px 0 10px;
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    line-height: 1.5;
+}
+
+.follower-author {
+    margin: 0 0 20px;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+.follower-author strong {
+    color: #ddd;
+}
+
+.follower-text {
+    margin: 0;
+
+    color: #ccc;
+
+    font-size: 15px;
+
+    line-height: 2;
+
+    text-align: right;
+}
+
+
+/* ==========================================
+   أزرار الإعجاب والتعليقات
+========================================== */
+
+.follower-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #242424;
+}
+
+.follower-actions button {
+    border: none;
+
+    padding: 10px 14px;
+
+    border-radius: 9px;
+
+    background: #181818;
+
+    color: #aaa;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition: all 0.3s ease;
+}
+
+.follower-actions button:hover {
+    background: #8b0000;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   زر الإعجاب بعد الضغط
+========================================== */
+
+.follower-like.liked {
+    background: #8b0000;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 12px rgba(139, 0, 0, 0.25);
+}
+
+
+/* ==========================================
+   أعداد الإعجابات والتعليقات
+========================================== */
+
+.like-count,
+.comment-count {
+    margin-right: 4px;
+
+    color: #ddd;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   صندوق التعليقات
+========================================== */
+
+.comments-box {
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-top: 1px solid #242424;
+
+    background: #0c0c0c;
+}
+
+.comments-box.show {
+    display: block;
+
+    animation: commentsShow 0.3s ease;
+}
+
+@keyframes commentsShow {
+
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==========================================
+   قائمة التعليقات
+========================================== */
+
+.comments-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+
+/* ==========================================
+   التعليق
+========================================== */
+
+.comment {
+    padding: 12px 14px;
+
+    background: #181818;
+
+    border-radius: 10px;
+
+    border-right: 3px solid #8b0000;
+}
+
+.comment strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #ddd;
+
+    font-size: 14px;
+}
+
+.comment p {
+    margin: 0;
+
+    color: #bbb;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+    word-break: break-word;
+}
+
+
+/* ==========================================
+   عندما لا توجد تعليقات
+========================================== */
+
+.no-comments {
+    margin: 0 0 15px;
+
+    color: #777;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   نموذج التعليق
+========================================== */
+
+.comment-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* ==========================================
+   اسم الزائر + التعليق
+========================================== */
+
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px;
+
+    border: 1px solid #333;
+
+    border-radius: 9px;
+
+    background: #111;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.comment-form input::placeholder,
+.comment-form textarea::placeholder {
+    color: #666;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+    border-color: #8b0000;
+
+    box-shadow:
+        0 0 0 2px rgba(139, 0, 0, 0.12);
+}
+
+.comment-form textarea {
+    resize: vertical;
+
+    min-height: 90px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   زر نشر التعليق
+========================================== */
+
+.comment-form button {
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    background: #8b0000;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-weight: bold;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.comment-form button:hover {
+    background: #a00000;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   رسالة التعليق
+========================================== */
+
+.comment-message {
+    margin: 0;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   الهاتف والتابلت
+========================================== */
+
+@media (max-width: 900px) {
+
+    .followers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ==========================================
+   الهاتف
+========================================== */
+
+@media (max-width: 600px) {
+
+    .followers-writings {
+        padding: 65px 15px;
+    }
+
+    .followers-header h2 {
+        font-size: 28px;
+    }
+
+    .followers-header p {
+        font-size: 14px;
+    }
+
+    .followers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .follower-content {
+        padding: 23px;
+    }
+
+    .follower-content h3 {
+        font-size: 22px;
+    }
+
+    .follower-actions {
+        flex-wrap: wrap;
+    }
+
+    .follower-actions button {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .comments-box {
+        padding: 16px;
+    }
+
+}/* ==========================================
+   أزرار الإعجاب والتعليقات - كتاباتي
+========================================== */
+
+.card .follower-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid #242424;
+}
+
+.card .follower-actions button {
+    border: none;
+    padding: 10px 14px;
+    border-radius: 9px;
+    background: #181818;
+    color: #aaa;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.card .follower-actions button:hover {
+    background: #8b0000;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* الإعجاب */
+.card .follower-like.liked {
+    background: #8b0000;
+    color: #fff;
+}
+
+/* أعداد الإعجابات والتعليقات */
+.card .like-count,
+.card .comment-count {
+    margin-right: 4px;
+    color: #ddd;
+}
+
+/* ==========================================
+   صندوق التعليقات
+========================================== */
+
+.card .comments-box {
+    display: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #242424;
+}
+
+.card .comments-box.show {
+    display: block;
+}
+
+/* ==========================================
+   قائمة التعليقات
+========================================== */
+
+.card .comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.card .comment {
+    padding: 12px 14px;
+    background: #181818;
+    border-radius: 10px;
+    border-right: 3px solid #8b0000;
+}
+
+.card .comment strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #ddd;
+}
+
+.card .comment p {
+    margin: 0;
+    color: #bbb;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   نموذج التعليق
+========================================== */
+
+.card .comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card .comment-form input,
+.card .comment-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 9px;
+    background: #111;
+    color: #fff;
+    font-family: inherit;
+    outline: none;
+}
+
+.card .comment-form input:focus,
+.card .comment-form textarea:focus {
+    border-color: #8b0000;
+}
+
+.card .comment-form textarea {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.7;
+}
+
+.card .comment-form button {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 9px;
+    background: #8b0000;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s ease;
+}
+
+.card .comment-form button:hover {
+    background: #a00000;
+}
+
+.card .comment-message {
+    margin: 0;
+    color: #aaa;
+    font-size: 13px;
+}
+
+/* ==========================================
+   الهاتف
+========================================== */
+
+@media (max-width: 600px) {
+
+    .card .follower-actions {
+        flex-wrap: wrap;
+    }
+
+    .card .follower-actions button {
+        flex: 1;
+        min-width: 120px;
+    }
+
+}
