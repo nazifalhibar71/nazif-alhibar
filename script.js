@@ -281,17 +281,799 @@ async function initializeCard(card) {
         );
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".card").forEach(function (card) {
+        var link = card.querySelector(".read-more");
+        var text = card.querySelector(":scope > p");
+        if (!link || !text) return;
 
-// ==========================================
-// تشغيل الموقع
-// ==========================================
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            var open = text.classList.toggle("expanded");
+            link.textContent = open ? "اقرأ أقل ↑" : "اقرأ المزيد ←";
+        });
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const cards = document.querySelectorAll(
-        ".card[data-post-id], .follower-card[data-post-id]"
+        // cacher le lien si le texte est court
+        setTimeout(function () {
+            if (text.scrollHeight <= text.clientHeight + 1) {
+                link.style.display = "none";
+            }
+        }, 500);
+    });
+});
+// =====================================================
+// نزيف الحبر | Nazif Alhibar
+// JavaScript الرئيسي للموقع
+// =====================================================
+
+
+// =====================================================
+// 1. SUPABASE
+// =====================================================
+
+    localStorage.getItem("nazif_visitor_id");
+
+if (!visitorId) {
+
+    if (
+        window.crypto &&
+        window.crypto.randomUUID
+    ) {
+
+        visitorId =
+            window.crypto.randomUUID();
+
+    } else {
+
+        visitorId =
+            "visitor-" +
+            Date.now() +
+            "-" +
+            Math.random()
+                .toString(36)
+                .substring(2);
+    }
+
+    localStorage.setItem(
+        "nazif_visitor_id",
+        visitorId
+    );
+}
+
+
+// =====================================================
+// 3. حماية النصوص من HTML
+// =====================================================
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+}
+
+
+// =====================================================
+// 4. ترتيب الكتابات حسب التاريخ
+//    الأحدث يظهر أولًا
+// =====================================================
+
+function sortWritingsByDate() {
+
+    const container =
+        document.querySelector(".cards");
+
+    if (!container) {
+        return;
+    }
+
+    const cards =
+        Array.from(
+            container.querySelectorAll(
+                ".card[data-date]"
+            )
+        );
+
+    cards.sort(function (a, b) {
+
+        const dateA =
+            new Date(a.dataset.date);
+
+        const dateB =
+            new Date(b.dataset.date);
+
+        return dateB - dateA;
+    });
+
+    cards.forEach(function (card) {
+
+        container.appendChild(card);
+
+    });
+}
+
+
+// =====================================================
+// 5. تحميل عدد الإعجابات
+// =====================================================
+
+async function loadLikes(
+    postId,
+    countElement
+) {
+
+    const { count, error } =
+        await supabaseClient
+            .from("likes")
+            .select("*", {
+                count: "exact",
+                head: true
+            })
+            .eq(
+                "post_id",
+                postId
+            );
+
+    if (error) {
+
+        console.error(
+            "خطأ في تحميل الإعجابات:",
+            error
+        );
+
+        return;
+    }
+
+    if (countElement) {
+
+        countElement.textContent =
+            count || 0;
+    }
+}
+
+
+// =====================================================
+// 6. التحقق من إعجاب الزائر
+// =====================================================
+
+async function checkLike(
+    postId,
+    button
+) {
+
+    const { data, error } =
+        await supabaseClient
+            .from("likes")
+            .select("id")
+            .eq(
+                "post_id",
+                postId
+            )
+            .eq(
+                "visitor_id",
+                visitorId
+            )
+            .maybeSingle();
+
+    if (error) {
+
+        console.error(
+            "خطأ في التحقق من الإعجاب:",
+            error
+        );
+
+        return;
+    }
+
+    if (data) {
+
+        button.classList.add(
+            "liked"
+        );
+
+        const text =
+            button.querySelector(
+                ".like-text"
+            );
+
+        if (text) {
+
+            text.textContent =
+                "أعجبني";
+        }
+    }
+}
+
+
+// =====================================================
+// 7. إضافة أو إزالة الإعجاب
+// =====================================================
+
+async function toggleLike(
+    postId,
+    button,
+    countElement
+) {
+
+    button.disabled = true;
+
+    const { data, error } =
+        await supabaseClient
+            .from("likes")
+            .select("id")
+            .eq(
+                "post_id",
+                postId
+            )
+            .eq(
+                "visitor_id",
+                visitorId
+            )
+            .maybeSingle();
+
+    if (error) {
+
+        console.error(
+            "خطأ في التحقق من الإعجاب:",
+            error
+        );
+
+        button.disabled = false;
+
+        return;
+    }
+
+
+    // ==========================================
+    // إذا كان قد أعجب من قبل → إزالة الإعجاب
+    // ==========================================
+
+    if (data) {
+
+        const { error: deleteError } =
+            await supabaseClient
+                .from("likes")
+                .delete()
+                .eq(
+                    "id",
+                    data.id
+                );
+
+        if (deleteError) {
+
+            console.error(
+                "خطأ في إزالة الإعجاب:",
+                deleteError
+            );
+
+            button.disabled = false;
+
+            return;
+        }
+
+        button.classList.remove(
+            "liked"
+        );
+
+        const text =
+            button.querySelector(
+                ".like-text"
+            );
+
+        if (text) {
+
+            text.textContent =
+                "إعجاب";
+        }
+
+    }
+
+    // ==========================================
+    // إذا لم يعجب من قبل → إضافة الإعجاب
+    // ==========================================
+
+    else {
+
+        const { error: insertError } =
+            await supabaseClient
+                .from("likes")
+                .insert({
+
+                    post_id:
+                        postId,
+
+                    visitor_id:
+                        visitorId
+                });
+
+        if (insertError) {
+
+            console.error(
+                "خطأ في إضافة الإعجاب:",
+                insertError
+            );
+
+            button.disabled = false;
+
+            return;
+        }
+
+        button.classList.add(
+            "liked"
+        );
+
+        const text =
+            button.querySelector(
+                ".like-text"
+            );
+
+        if (text) {
+
+            text.textContent =
+                "أعجبني";
+        }
+    }
+
+
+    // تحديث العدد
+
+    await loadLikes(
+        postId,
+        countElement
     );
 
-    for (const card of cards) {
-        await initializeCard(card);
+    button.disabled = false;
+}
+
+
+// =====================================================
+// 8. تحميل التعليقات
+// =====================================================
+
+async function loadComments(
+    postId,
+    container,
+    countElement
+) {
+
+    const { data, error } =
+        await supabaseClient
+            .from("comments")
+            .select(
+                "id, visitor_name, comment_text, created_at"
+            )
+            .eq(
+                "post_id",
+                postId
+            )
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
+
+    if (error) {
+
+        console.error(
+            "خطأ في تحميل التعليقات:",
+            error
+        );
+
+        return;
     }
-});
+
+
+    container.innerHTML = "";
+
+
+    // لا توجد تعليقات
+
+    if (
+        !data ||
+        data.length === 0
+    ) {
+
+        container.innerHTML = `
+            <p class="no-comments">
+                لا توجد تعليقات بعد.
+                كن أول من يعلّق ✍️
+            </p>
+        `;
+
+        if (countElement) {
+
+            countElement.textContent =
+                "0";
+        }
+
+        return;
+    }
+
+
+    // عرض التعليقات
+
+    data.forEach(function (comment) {
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "comment";
+
+
+        const name =
+            document.createElement("strong");
+
+        name.textContent =
+            comment.visitor_name;
+
+
+        const text =
+            document.createElement("p");
+
+        text.textContent =
+            comment.comment_text;
+
+
+        div.appendChild(name);
+
+        div.appendChild(text);
+
+        container.appendChild(div);
+
+    });
+
+
+    // تحديث العدد
+
+    if (countElement) {
+
+        countElement.textContent =
+            data.length;
+    }
+}
+
+
+// =====================================================
+// 9. إضافة تعليق
+// =====================================================
+
+async function addComment(
+    postId,
+    nameInput,
+    commentInput,
+    commentsContainer,
+    messageElement,
+    countElement
+) {
+
+    const name =
+        nameInput.value.trim();
+
+    const comment =
+        commentInput.value.trim();
+
+
+    // التحقق
+
+    if (!name || !comment) {
+
+        messageElement.textContent =
+            "⚠️ اكتب اسمك والتعليق أولًا.";
+
+        return;
+    }
+
+
+    if (name.length > 50) {
+
+        messageElement.textContent =
+            "⚠️ الاسم طويل جدًا.";
+
+        return;
+    }
+
+
+    if (comment.length > 500) {
+
+        messageElement.textContent =
+            "⚠️ التعليق طويل جدًا.";
+
+        return;
+    }
+
+
+    messageElement.textContent =
+        "⏳ جاري نشر التعليق...";
+
+
+    // إرسال التعليق
+
+    const { error } =
+        await supabaseClient
+            .from("comments")
+            .insert({
+
+                post_id:
+                    postId,
+
+                visitor_name:
+                    name,
+
+                comment_text:
+                    comment
+            });
+
+
+    if (error) {
+
+        console.error(
+            "خطأ في إرسال التعليق:",
+            error
+        );
+
+        messageElement.textContent =
+            "❌ تعذر نشر التعليق. حاول مرة أخرى.";
+
+        return;
+    }
+
+
+    // تنظيف الخانات
+
+    nameInput.value = "";
+
+    commentInput.value = "";
+
+
+    messageElement.textContent =
+        "✅ تم نشر تعليقك بنجاح.";
+
+
+    // إعادة تحميل التعليقات
+
+    await loadComments(
+        postId,
+        commentsContainer,
+        countElement
+    );
+}
+
+
+// =====================================================
+// 10. تشغيل النظام لكل بطاقة
+// =====================================================
+
+function initializeCard(card) {
+
+    const postId =
+        card.dataset.postId;
+
+    if (!postId) {
+
+        console.error(
+            "هذه البطاقة لا تحتوي على data-post-id:",
+            card
+        );
+
+        return;
+    }
+
+
+    // ==========================================
+    // عناصر الإعجاب
+    // ==========================================
+
+    const likeButton =
+        card.querySelector(
+            ".follower-like"
+        );
+
+    const likeCount =
+        card.querySelector(
+            ".like-count"
+        );
+
+
+    // ==========================================
+    // عناصر التعليقات
+    // ==========================================
+
+    const commentButton =
+        card.querySelector(
+            ".follower-comment"
+        );
+
+    const commentCount =
+        card.querySelector(
+            ".comment-count"
+        );
+
+    const commentsBox =
+        card.querySelector(
+            ".comments-box"
+        );
+
+    const commentsList =
+        card.querySelector(
+            ".comments-list"
+        );
+
+    const commentForm =
+        card.querySelector(
+            ".comment-form"
+        );
+
+    const nameInput =
+        card.querySelector(
+            ".comment-name"
+        );
+
+    const commentInput =
+        card.querySelector(
+            ".comment-text"
+        );
+
+    const messageElement =
+        card.querySelector(
+            ".comment-message"
+        );
+
+
+    // ==========================================
+    // التأكد من وجود العناصر
+    // ==========================================
+
+    if (
+        !likeButton ||
+        !likeCount ||
+        !commentButton ||
+        !commentCount ||
+        !commentsBox ||
+        !commentsList ||
+        !commentForm ||
+        !nameInput ||
+        !commentInput ||
+        !messageElement
+    ) {
+
+        console.warn(
+            "بعض عناصر التفاعل غير موجودة في:",
+            postId
+        );
+
+        return;
+    }
+
+
+    // ==========================================
+    // تحميل الإعجابات
+    // ==========================================
+
+    loadLikes(
+        postId,
+        likeCount
+    );
+
+
+    // ==========================================
+    // التحقق من الإعجاب
+    // ==========================================
+
+    checkLike(
+        postId,
+        likeButton
+    );
+
+
+    // ==========================================
+    // زر الإعجاب
+    // ==========================================
+
+    likeButton.addEventListener(
+        "click",
+        async function () {
+
+            await toggleLike(
+                postId,
+                likeButton,
+                likeCount
+            );
+
+        }
+    );
+
+
+    // ==========================================
+    // زر التعليقات
+    // ==========================================
+
+    commentButton.addEventListener(
+        "click",
+        async function () {
+
+            commentsBox.classList.toggle(
+                "show"
+            );
+
+
+            if (
+                commentsBox.classList.contains(
+                    "show"
+                )
+            ) {
+
+                await loadComments(
+                    postId,
+                    commentsList,
+                    commentCount
+                );
+
+                nameInput.focus();
+            }
+
+        }
+    );
+
+
+    // ==========================================
+    // نموذج التعليق
+    // ==========================================
+
+    commentForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+            await addComment(
+                postId,
+                nameInput,
+                commentInput,
+                commentsList,
+                messageElement,
+                commentCount
+            );
+
+        }
+    );
+}
+
+
+// =====================================================
+// 11. تشغيل الموقع
+// =====================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        // أولًا:
+        // ترتيب كتاباتي من الأحدث إلى الأقدم
+
+        sortWritingsByDate();
+
+
+        // البحث عن جميع الكتابات
+        // كتاباتي + كتابات المتابعين
+
+        const cards =
+            document.querySelectorAll(
+                ".card[data-post-id], .follower-card[data-post-id]"
+            );
+
+
+        // تشغيل نظام الإعجاب والتعليقات
+
+        cards.forEach(function (card) {
+
+            initializeCard(card);
+
+        });
+
+    }
+);

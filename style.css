@@ -4,7 +4,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    
 }
 
 
@@ -13,7 +13,7 @@ html {
 
 }
 body {
-    background: #0b0b0b;
+ background-color: #050505;
     color: #eeeeee;
     font-family: "cairo", sans-serif;
     line-height: 1.8;
@@ -1679,4 +1679,34 @@ html {
         min-width: 120px;
     }
 
+}
+.quote-image {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.quote-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.card > p {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card > p.poem {
+    white-space: pre-line;
+}
+
+.card > p.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
 }
