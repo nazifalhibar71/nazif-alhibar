@@ -1721,7 +1721,7 @@ html {
 .next-writing-box {
     max-width: 750px;
     margin: auto;
-    padding: 35px 25px;
+    padding: 25px 25px;
     border: 1px solid #292929;
     border-radius: 18px;
     background: linear-gradient(145deg, #111111, #080808);
@@ -1730,7 +1730,7 @@ html {
 
 .next-writing-icon {
     display: block;
-    font-size: 32px;
+    font-size: 25px;
     margin-bottom: 12px;
 }
 
@@ -1741,9 +1741,9 @@ html {
 }
 
 .next-writing-box h2 {
-    margin: 0 0 15px;
+    margin: 0 0 10px;
     color: #fff;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .next-writing-text {
