@@ -1710,3 +1710,82 @@ html {
     -webkit-line-clamp: unset;
     overflow: visible;
 }
+/* إعلان الكتابة القادمة */
+
+.next-writing {
+    padding: 50px 20px;
+    background: #050505;
+    text-align: center;
+}
+
+.next-writing-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px 25px;
+    border: 1px solid #292929;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #111111, #080808);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+}
+
+.next-writing-icon {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.next-writing-label {
+    margin: 0 0 8px;
+    color: #999;
+    font-size: 14px;
+}
+
+.next-writing-box h2 {
+    margin: 0 0 15px;
+    color: #fff;
+    font-size: 30px;
+}
+
+.next-writing-text {
+    margin: 0 auto 22px;
+    max-width: 600px;
+    color: #aaa;
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.next-writing-date {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: #181818;
+    color: #ddd;
+    font-size: 15px;
+}
+
+.next-writing-date span {
+    margin: 0 8px;
+    color: #777;
+}
+
+@media (max-width: 600px) {
+    .next-writing {
+        padding: 35px 15px;
+    }
+
+    .next-writing-box {
+        padding: 28px 18px;
+    }
+
+    .next-writing-box h2 {
+        font-size: 25px;
+    }
+
+    .next-writing-date span {
+        display: none;
+    }
+
+    .next-writing-date {
+        line-height: 2;
+    }
+}
