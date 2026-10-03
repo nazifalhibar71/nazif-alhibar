@@ -1788,4 +1788,554 @@ html {
     .next-writing-date {
         line-height: 2;
     }
+}.special-story {
+    padding: 80px 20px;
+}
+
+.story-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.story-label {
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.story-box h3 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.story-intro {
+    color: #bbb;
+    line-height: 2;
+}
+
+.story-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: #8b0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+/* =========================
+   سمراء المزاج
+========================= */
+
+.story-section {
+    max-width: 900px;
+    margin: 100px auto;
+    padding: 60px 30px;
+    text-align: center;
+    color: #f5f1e8;
+}
+
+.story-section h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 48px;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+}
+
+.story-section p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    line-height: 2.2;
+    text-align: right;
+    color: #d8d3ca;
+}
+
+/* خط زخرفي تحت العنوان */
+.story-section h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 1px;
+    background: #777;
+    margin: 20px auto 0;
+}
+
+/* التنقل داخل القصة */
+.story-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.story-navigation a {
+    color: #f5f1e8;
+    text-decoration: none;
+    border: 1px solid #555;
+    padding: 12px 22px;
+    transition: 0.3s;
+}
+
+.story-navigation a:hover {
+    background: #f5f1e8;
+    color: #111;
+}
+
+/* الهاتف */
+@media (max-width: 600px) {
+
+    .story-section {
+        padding: 40px 20px;
+        margin: 60px auto;
+    }
+
+    .story-section h2 {
+        font-size: 36px;
+    }
+
+    .story-section p {
+        font-size: 17px;
+        line-height: 2;
+    }
+
+    .story-navigation {
+        gap: 15px;
+    }
+
+    .story-navigation a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+/* ==========================================
+   سمراء المزاج - صفحة القصة
+========================================== */
+
+.samar-page {
+    padding-top: 110px;
+    background: #050505;
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   مقدمة القصة
+========================================== */
+
+.samar-hero {
+    min-height: 55vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #222 0%,
+            #0b0b0b 60%,
+            #050505 100%
+        );
+}
+
+.samar-hero .small-title {
+    color: #999;
+    letter-spacing: 3px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.samar-hero h1 {
+    font-family: "Amiri", serif;
+    font-size: clamp(60px, 10vw, 110px);
+    line-height: 1.1;
+    color: #eeeeee;
+    margin: 0;
+}
+
+.samar-line {
+    margin: 25px 0;
+    color: #8b0000;
+    font-size: 30px;
+}
+
+.samar-subtitle {
+    font-family: "Amiri", serif;
+    color: #999;
+    font-size: 20px;
+}
+
+
+/* ==========================================
+   محتوى القصة
+========================================== */
+
+.samar-story {
+    max-width: 850px;
+    margin: 80px auto;
+    padding: 55px 50px;
+
+    background: #111;
+
+    border: 1px solid #252525;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35);
+
+    position: relative;
+}
+
+
+/* الخط الأحمر العلوي */
+
+.samar-story::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90px;
+    height: 3px;
+
+    background: #8b0000;
+
+    border-radius: 10px;
+}
+
+
+/* التصنيف */
+
+.samar-label {
+    display: table;
+
+    margin: 0 auto 20px;
+
+    padding: 6px 15px;
+
+    border-radius: 20px;
+
+    background: rgba(139, 0, 0, 0.15);
+
+    color: #c78b8b;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 12px;
+}
+
+
+/* عنوان القصة */
+
+.samar-story h2 {
+    text-align: center;
+
+    font-family: "Amiri", serif;
+
+    font-size: 45px;
+
+    color: #ffffff;
+
+    margin-bottom: 10px;
+}
+
+
+/* الزخرفة */
+
+.samar-decoration {
+    text-align: center;
+
+    color: #8b0000;
+
+    font-size: 20px;
+
+    margin: 15px 0 45px;
+}
+/* فقرات القصة */
+
+.samar-story p {
+    font-family: "Amiri", serif;
+
+    color: #ccc;
+
+    font-size: 21px;
+
+    line-height: 2.4;
+
+    text-align: right;
+
+    margin-bottom: 30px;
+}
+
+
+/* نهاية القصة */
+
+.samar-end {
+    text-align: center;
+
+    color: #8b0000;
+
+    font-size: 30px;
+
+    margin-top: 50px;
+}
+
+
+/* ==========================================
+   أزرار التنقل
+========================================== */
+
+.samar-navigation {
+    max-width: 850px;
+
+    margin: 0 auto 100px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.samar-navigation a {
+    display: inline-block;
+
+    padding: 12px 28px;
+
+    border: 1px solid #333;
+
+    border-radius: 10px;
+
+    color: #ddd;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.samar-navigation a:hover {
+    background: #8b0000;
+
+    border-color: #8b0000;
+
+    color: #fff;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   الهاتف
+========================================== */
+
+@media (max-width: 600px) {
+
+    .samar-page {
+        padding-top: 100px;
+    }
+
+    .samar-hero {
+        min-height: 45vh;
+
+        padding: 60px 20px;
+    }
+
+    .samar-hero h1 {
+        font-size: 55px;
+    }
+
+    .samar-subtitle {
+        font-size: 17px;
+    }
+
+    .samar-story {
+        margin: 50px 15px;
+
+        padding: 40px 22px;
+
+        border-radius: 14px;
+    }
+
+    .samar-story h2 {
+        font-size: 38px;
+    }
+
+    .samar-story p {
+        font-size: 18px;
+
+        line-height: 2.2;
+
+        text-align: right;
+    }
+
+    .samar-navigation {
+        margin-bottom: 70px;
+    }
+
+}/* ==========================================
+   فصول سمراء المزاج
+========================================== */
+
+.samar-chapters {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.chapters-list {
+    max-width: 850px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.chapter-card {
+    padding: 25px;
+
+    background: #111;
+
+    border: 1px solid #252525;
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.chapter-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #8b0000;
+
+    background: #141414;
+}
+
+.chapter-card span {
+    display: block;
+
+    color: #8b0000;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+.chapter-card strong {
+    color: #ddd;
+
+    font-family: "Amiri", serif;
+
+    font-size: 24px;
+}
+
+
+/* ==========================================
+   الفصل
+========================================== */
+
+.story-chapter {
+    max-width: 850px;
+
+    margin: 80px auto;
+
+    padding: 65px 50px;
+
+    background: #111;
+
+    border: 1px solid #252525;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.3);
+}
+
+.chapter-number {
+    display: block;
+
+    text-align: center;
+
+    color: #8b0000;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+.story-chapter h2 {
+    text-align: center;
+
+    font-family: "Amiri", serif;
+
+    font-size: 45px;
+
+    color: #eee;
+
+    margin-bottom: 10px;
+}
+
+.chapter-line {
+    text-align: center;
+
+    color: #8b0000;
+
+    font-size: 25px;
+
+    margin-bottom: 40px;
+}
+
+.story-chapter p {
+    font-family: "Amiri", serif;
+
+    color: #ccc;
+
+    font-size: 21px;
+
+    line-height: 2.4;
+
+    text-align: right;
+
+    margin-bottom: 30px;
+}
+
+
+/* ==========================================
+   الهاتف
+========================================== */
+
+@media (max-width: 600px) {
+
+    .chapters-list {
+        grid-template-columns: 1fr;
+    }
+
+    .story-chapter {
+        margin: 50px 15px;
+
+        padding: 40px 22px;
+    }
+
+    .story-chapter h2 {
+        font-size: 36px;
+    }
+
+    .story-chapter p {
+        font-size: 18px;
+
+        line-height: 2.2;
+    }
+
 }
