@@ -2439,3 +2439,332 @@ html {
         padding: 11px;
     }
 }
+/* ==========================================
+   زخرفة فصول سمراء المزاج
+   حاسوب + هاتف
+========================================== */
+
+.story-chapter {
+    position: relative;
+    overflow: hidden;
+}
+
+/* الزخرفة أعلى الفصل */
+
+.story-chapter::before {
+    content: "✦";
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #8b0000;
+    font-size: 22px;
+    line-height: 1;
+}
+
+/* خط زخرفي تحت عنوان الفصل */
+
+.story-chapter h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 1px;
+    background: #8b0000;
+    margin: 15px auto 0;
+}
+
+/* زخرفة نهاية الفصل */
+
+.story-chapter::after {
+    content: "✦";
+    display: block;
+    text-align: center;
+    color: #8b0000;
+    font-size: 18px;
+    margin-top: 35px;
+}
+
+
+/* ==========================================
+   الإعجاب والتعليقات
+========================================== */
+
+.chapter-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #252525;
+    flex-wrap: wrap;
+}
+
+.chapter-actions button {
+    background: #111;
+    color: #aaa;
+    border: 1px solid #292929;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Cairo", sans-serif;
+    transition: 0.3s ease;
+}
+
+.chapter-actions button:hover,
+.chapter-actions button.liked {
+    background: #8b0000;
+    border-color: #8b0000;
+    color: #fff;
+}
+
+.chapter-actions strong {
+    margin-right: 5px;
+}
+
+
+/* ==========================================
+   التعليقات
+========================================== */
+
+.chapter-comments {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #0b0b0b;
+    border: 1px solid #252525;
+    border-radius: 14px;
+}
+
+.chapter-comments.active {
+    display: block;
+}
+
+.chapter-comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.chapter-comment {
+    background: #111;
+    border: 1px solid #252525;
+    border-radius: 10px;
+    padding: 14px;
+}
+
+.chapter-comment-user {
+    color: #c78b8b;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.chapter-comment-content {
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.chapter-comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chapter-comment-form input,
+.chapter-comment-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background: #111;
+    color: #eee;
+    border: 1px solid #292929;
+    border-radius: 9px;
+    padding: 12px;
+    font-family: "Cairo", sans-serif;
+    outline: none;
+}
+
+.chapter-comment-form input:focus,
+.chapter-comment-form textarea:focus {
+    border-color: #8b0000;
+}
+
+.chapter-comment-form button {
+    align-self: flex-start;
+    background: #8b0000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-family: "Cairo", sans-serif;
+}
+
+.chapter-comment-message {
+    color: #aaa;
+    font-size: 13px;
+    margin: 0;
+}
+
+
+/* ==========================================
+   الهاتف
+========================================== */
+
+@media (max-width: 600px) {
+
+    .story-chapter {
+        width: calc(100% - 30px);
+        margin: 50px auto;
+        padding: 55px 22px 35px;
+        box-sizing: border-box;
+        border-radius: 16px;
+    }
+
+    .story-chapter::before {
+        top: 16px;
+        font-size: 19px;
+    }
+
+    .story-chapter h2 {
+        font-size: 36px;
+    }
+
+    .story-chapter h2::after {
+        width: 55px;
+        margin-top: 12px;
+    }
+
+    .story-chapter p {
+        font-size: 18px;
+        line-height: 2.2;
+    }
+
+    .story-chapter::after {
+        font-size: 16px;
+        margin-top: 30px;
+    }
+
+    .chapter-actions {
+        gap: 8px;
+    }
+
+    .chapter-actions button {
+        font-size: 13px;
+        padding: 9px 12px;
+    }
+
+    .chapter-comments {
+        padding: 15px;
+    }
+
+    .chapter-comment-form button {
+        width: 100%;
+    }
+
+}
+/* =========================
+   إعجابات وتعليقات الفصول - الهاتف
+========================= */
+
+.chapter-actions {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #252525;
+}
+
+.chapter-actions button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: #161616;
+    color: #ddd;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-family: "Cairo", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.chapter-actions button:hover {
+    border-color: #8b0000;
+    color: #fff;
+}
+
+.chapter-like .like-count {
+    margin-right: 5px;
+    color: #c78b8b;
+}
+
+/* التعليقات */
+.chapter-comments {
+    display: block;
+    margin-top: 20px;
+    padding: 20px;
+    background: #0b0b0b;
+    border: 1px solid #252525;
+    border-radius: 12px;
+}
+
+.chapter-comments-list {
+    margin-bottom: 15px;
+}
+
+.chapter-comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chapter-comment-form input,
+.chapter-comment-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background: #111;
+    color: #eee;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: "Cairo", sans-serif;
+}
+
+.chapter-comment-form button {
+    width: 100%;
+}
+
+/* الهاتف */
+@media (max-width: 600px) {
+
+    .chapter-actions {
+        display: flex !important;
+        width: 100%;
+        flex-direction: row;
+        gap: 8px;
+        margin-top: 30px;
+        padding-top: 18px;
+    }
+
+    .chapter-actions button {
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        flex: 1;
+        min-width: 0;
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    .chapter-comments {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 15px;
+        padding: 15px;
+    }
+}
