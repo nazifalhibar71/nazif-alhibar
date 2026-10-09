@@ -19,7 +19,53 @@
 </head>
 
 <body>
-<script src="readmore.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".read-more").forEach(function (button) {
+        const card = button.closest(".card");
+        const text = card ? card.querySelector("p") : null;
+        if (!text) return;
+
+        text.classList.add("readmore-text");
+
+        // إظهار أول 4 أسطر فقط في البداية
+        const styles = window.getComputedStyle(text);
+        let lineHeight = parseFloat(styles.lineHeight);
+        if (isNaN(lineHeight)) lineHeight = parseFloat(styles.fontSize) * 1.7;
+        const collapsedHeight = lineHeight * 4;
+
+        // لا نعرض الزر إذا كان النص قصيرًا ولا يحتاج إلى اختصار
+        if (text.scrollHeight <= collapsedHeight + 5) {
+            button.style.display = "none";
+            return;
+        }
+
+        text.style.maxHeight = collapsedHeight + "px";
+        text.style.overflow = "hidden";
+
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            const expanded = text.classList.toggle("expanded");
+
+            if (expanded) {
+                text.style.maxHeight = text.scrollHeight + "px";
+                button.textContent = "إخفاء النص ↑";
+            } else {
+                text.style.maxHeight = collapsedHeight + "px";
+                button.textContent = "اقرأ المزيد ←";
+            }
+        });
+    });
+});
+</script>
+<style>
+/* وظيفة زر «اقرأ المزيد» */
+.readmore-text {
+    overflow: hidden;
+    transition: max-height 0.45s ease;
+}
+</style>
 <header>
     <nav class="navbar">
         <div class="logo">
