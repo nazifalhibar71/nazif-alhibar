@@ -36,3 +36,68 @@ footer{text-align:center;padding:40px 20px;background:#050505;border-top:1px sol
 @media(max-width:430px){.logo{font-size:24px}.hero h1{font-size:64px}.subtitle,.samar-subtitle{font-size:19px}.section-title h2{font-size:42px}.card{padding:22px}.card h3{font-size:27px}.quote p{font-size:27px}.story-box h3{font-size:34px}.story-chapter h2{font-size:39px}.chapter-body p,.story-chapter>p{font-size:19px;line-height:2}.follower-actions button,.chapter-actions button{flex:1;min-width:115px}}
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.follower-card,.chapter-card,.button,.story-button{transition:none}}
+
+/* ===== تنقل سهل بين أقسام نزيف الحبر ===== */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #050505;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 15px 20px;
+}
+
+.nav-links a {
+    display: block;
+    color: #eee;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #c00000;
+}
+
+/* حتى لا يختفي عنوان القسم خلف الشريط */
+#writings,
+#samra,
+#followers-writings,
+#about,
+#contact {
+    scroll-margin-top: 100px;
+}
+
+/* الهواتف */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 18px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        padding: 14px 12px;
+    }
+
+    .nav-links li {
+        flex-shrink: 0;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+}
