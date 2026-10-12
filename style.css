@@ -101,3 +101,73 @@ header {
         font-size: 14px;
     }
 }
+
+/* إصلاح التنقل على الهاتف والحاسوب */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #050505;
+    width: 100%;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 14px 12px;
+}
+
+.nav-links li {
+    display: block !important;
+    flex-shrink: 0;
+}
+
+.nav-links a {
+    display: block;
+    white-space: nowrap;
+    color: #eee;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* الهاتف */
+@media screen and (max-width: 768px) {
+    header nav {
+        flex-wrap: nowrap;
+        overflow: visible;
+    }
+
+    .nav-links {
+        display: flex !important;
+        flex: 1;
+        min-width: 0;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        gap: 16px;
+    }
+
+    .nav-links li {
+        flex: 0 0 auto;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+        padding: 8px 0;
+    }
+}
