@@ -3,7 +3,6 @@
 <head>
    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4993925941890328"
      crossorigin="anonymous"></script>
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="نزيف الحبر | مساحة أدبية للكلمات والخواطر والنصوص العربية.">
@@ -19,9 +18,9 @@
     </script>
 
     <link rel="stylesheet" href="style.css">
+</head>
+<body>
 <header>
-
-    <body>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".read-more").forEach(function (button) {
@@ -106,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="section-title">
         <p>ما يكتبه القلب</p>
         <h2>كتاباتي</h2>
-        <section id="writings" class="writings">
+    </div>
         <!-- إعلان الكتابة القادمة -->
 <section class="next-writing">
     <div class="next-writing-box">
@@ -121,15 +120,15 @@ document.addEventListener("DOMContentLoaded", function () {
             سأضع كتابة جديدة في «نزيف الحبر» في موعدها.
             ترقّبوا الحروف القادمة.
         </p>
-📖 **قريبًا... «سمراء المزاج»**
+📖 <strong>قريبًا... «سمراء المزاج»</strong>
 
 قصةٌ كتبتُها على مهل، وتركتُ بين سطورها شيئًا من القلب، وشيئًا من الحكايات التي لا تُروى دفعةً واحدة.
 
-ابتداءً من اليوم، سأشارككم **مقطعًا جديدًا كل يوم** من القصة.
+ابتداءً من اليوم، سأشارككم <strong>مقطعًا جديدًا كل يوم</strong> من القصة.
 
 قريبا الفصل الثالت.🖋️
 
-**«سمراء المزاج» — الحكاية تبدأ من هنا.**
+<strong>«سمراء المزاج» — الحكاية تبدأ من هنا.</strong>
 
         <div class="next-writing-date">
             📅  في أحد الأيام،
@@ -138,9 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </div>
 </section>
-    </div>
-
-    <div class="cards">
+        <div class="cards">
         <!-- الكتابة الخامسة -->
         <article class="card" data-post-id="writing-5" data-date="2026-09-29">
             <div class="card-icon">✒</div>
@@ -325,7 +322,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p class="comment-message"></p>
                 </form>
             </div>
-        </section>
+        </article>
+        </div><!-- /.cards -->
+</section><!-- /#writings -->
 
 <!-- =========================
      سمراء المزاج
@@ -499,7 +498,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <p>© 2026 Nazif Alhibar — جميع الحقوق محفوظة</p>
 </footer>
 
-<!-- Supabase يجب أن يأتي قبل script.js -->
+<!-- حمّل مكتبة Supabase قبل script.js الذي ينفذ عمليات قاعدة البيانات -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
 
